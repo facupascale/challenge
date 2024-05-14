@@ -2,16 +2,16 @@ import { useFavorites } from '@store'
 import { Artwork } from '@types'
 import { SafeAreaView } from 'react-native-safe-area-context'
 import { List } from '@components'
-import { useNavigation } from '@react-navigation/core'
-import { STACK_ROUTES } from '@constants'
+import { SCREEN_NAMES } from '@constants'
+import { NavigationService } from '@services'
 import { styles } from './styles'
 
 const FavoritesScreen = () => {
   const { setUserFavorites, userFavorites } = useFavorites()
-  const navigation = useNavigation()
+  const { navigate } = NavigationService
 
   const handleOnPress = (item: Artwork) => {
-    navigation.navigate(STACK_ROUTES.DETAILS, { item })
+    navigate(SCREEN_NAMES.DETAILS, { item })
   }
 
   const handleFavorite = (item: Artwork) => {

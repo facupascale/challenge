@@ -8,7 +8,7 @@
     "test": "jest",
     "ios:install": "npx pod-install",
     "android:dev": "npx react-native run-android --mode=debug",
-    "ios:dev": "npx react-native run-ios --simulator 'iPhone 15 Pro'",
+    "ios:dev": "npx react-native run-ios --simulator 'iPhone 15 Pro (17.0)'",
     "all:dev": "yarn ios:dev && yarn android:dev && yarn start"
   },
   "dependencies": {

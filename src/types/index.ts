@@ -1,3 +1,5 @@
+import { ScreenName } from './navigations'
+
 interface Artwork {
   alt_artist_ids: number[]
   alt_classification_ids: number[]
@@ -109,4 +111,4 @@ interface ArtworkResponse {
   config: { iiif_url: string; website_url: string }
 }
 
-export type { ArtworkResponse, Artwork }
+export type { ArtworkResponse, Artwork, ScreenName }

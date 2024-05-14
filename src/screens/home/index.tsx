@@ -1,26 +1,26 @@
 import { useEffect, useState } from 'react'
 import { Text, ActivityIndicator } from 'react-native'
 import { SafeAreaView } from 'react-native-safe-area-context'
-import { useNavigation } from '@react-navigation/native'
 import { useArtworks } from '@hooks'
 import { Artwork } from '@types'
-import { STACK_ROUTES } from '@constants'
+import { SCREEN_NAMES } from '@constants'
 import { Button, List } from '@components'
-import { styles } from './styles'
 import { useFavorites } from '@store'
+import { NavigationService } from '@services'
+import { styles } from './styles'
 
 const HomeScreen = () => {
+  const { navigate } = NavigationService
   const [page, setPage] = useState<number>(1)
   const [artworks, setArtworks] = useState<Artwork[]>([])
   const { data, isLoading, isError } = useArtworks(page)
   const { setUserFavorites, userFavorites } = useFavorites()
-  const navigation = useNavigation()
 
   const handleButtonPress = () => {
-    navigation.navigate(STACK_ROUTES.FAVORITES)
+    navigate(SCREEN_NAMES.FAVORITES)
   }
   const handleOnPress = (item: Artwork) => {
-    navigation.navigate(STACK_ROUTES.DETAILS, { item })
+    navigate(SCREEN_NAMES.DETAILS, { item })
   }
   const handleAddFavorite = (item: Artwork) => {
     if (!userFavorites.find(el => el.id === item.id)) {

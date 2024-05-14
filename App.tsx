@@ -1,5 +1,5 @@
 import React from 'react'
-import { NavigationContainer } from '@navigation/navigationContainer'
+import { NavigationContainer } from './src/navigation'
 import { QueryClient, QueryClientProvider } from 'react-query'
 
 const queryClient = new QueryClient()
